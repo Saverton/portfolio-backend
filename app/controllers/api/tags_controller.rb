@@ -3,6 +3,6 @@ class Api::TagsController < ApplicationController
   def index
     @tags = Tag.all
 
-    render json: @tags, status: :ok
+    render :index, status: :ok
   end
 end

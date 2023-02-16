@@ -5,7 +5,7 @@ class Api::ProjectsController < ApplicationController
   def index
     @projects = Project.all
 
-    render json: @projects, status: :ok
+    render :index, status: :ok
   end
 
   # POST /projects
@@ -17,7 +17,7 @@ class Api::ProjectsController < ApplicationController
 
       add_links
 
-      render json: @project, status: :created
+      render :show, status: :created
     else
       render json: @project.errors, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class Api::ProjectsController < ApplicationController
 
       add_links
 
-      render json: @project, status: :accepted
+      render :show, status: :accepted
     else
       render json: @project.errors, status: :unprocessable_entity
     end
