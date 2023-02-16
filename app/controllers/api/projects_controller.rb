@@ -1,5 +1,5 @@
 class Api::ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show update destroy ]
+  before_action :set_project, only: %i[show update destroy]
 
   # GET /projects
   def index
@@ -13,17 +13,9 @@ class Api::ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-      # Array of tags
-      params[:tags].each do |tag|
-        tag = Tag.find_or_create_by(name: tag)
-        @project.project_tags.create!(tag_id: tag.id)
-      end
+      add_tags
 
-      # Array of links
-      params[:links].each do |link|
-        pp link
-        @project.links.create!(url: link[:url], source: link[:source])
-      end
+      add_links
 
       render json: @project, status: :created
     else
@@ -34,7 +26,11 @@ class Api::ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   def update
     if @project.update(project_params)
-      render json: @project
+      add_tags
+
+      add_links
+
+      render json: @project, status: :accepted
     else
       render json: @project.errors, status: :unprocessable_entity
     end
@@ -43,6 +39,7 @@ class Api::ProjectsController < ApplicationController
   # DELETE /projects/1
   def destroy
     @project.destroy
+    head :no_content
   end
 
   private
@@ -55,5 +52,24 @@ class Api::ProjectsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def project_params
     params.require(:project).permit(:title, :description)
+  end
+
+  # Add tags from params[:tags] to project
+  def add_tags
+    return unless params[:tags]
+
+    params[:tags].each do |tag|
+      tag = Tag.find_or_create_by(name: tag)
+      @project.project_tags.create!(tag_id: tag.id)
+    end
+  end
+
+  # Add tags from params[:links] to project
+  def add_links
+    return unless params[:links]
+
+    params[:links].each do |link|
+      @project.links.create!(url: link[:url], source: link[:source])
+    end
   end
 end
