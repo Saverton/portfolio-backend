@@ -5,12 +5,7 @@ class Api::ProjectsController < ApplicationController
   def index
     @projects = Project.all
 
-    render json: @projects
-  end
-
-  # GET /projects/1
-  def show
-    render json: @project
+    render json: @projects, status: :ok
   end
 
   # POST /projects
@@ -18,7 +13,19 @@ class Api::ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-      render json: @project, status: :created, location: @project
+      # Array of tags
+      params[:tags].each do |tag|
+        tag = Tag.find_or_create_by(name: tag)
+        @project.project_tags.create!(tag_id: tag.id)
+      end
+
+      # Array of links
+      params[:links].each do |link|
+        pp link
+        @project.links.create!(url: link[:url], source: link[:source])
+      end
+
+      render json: @project, status: :created
     else
       render json: @project.errors, status: :unprocessable_entity
     end
@@ -39,13 +46,14 @@ class Api::ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def project_params
-      params.require(:project).permit(:title, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = Project.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def project_params
+    params.require(:project).permit(:title, :description)
+  end
 end
