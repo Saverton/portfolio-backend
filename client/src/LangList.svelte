@@ -69,12 +69,13 @@
     display: flex
     justify-content: center
     align-items: center
+    margin-bottom: 0
 
   ul
     display: flex
-    gap: 4rem
     position: relative
-    height: 4rem
+    height: 5vw
+    min-height: 3rem
     overflow-x: hidden
     min-width: 80%
     max-width: 80%
@@ -82,6 +83,7 @@
   div
     &.border
       width: 10px
-      height: 5rem
+      height: 7vw
+      min-height: 4rem
       background-color: #445
 </style>

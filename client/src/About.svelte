@@ -18,16 +18,16 @@
 <style lang="sass">
   section
     display: flex
-    gap: 20px
+    gap: 1rem
     justify-content: center
     align-items: start
 
   img
-    max-width: 40%
+    max-width: 35%
     object-fit: contain
 
   p
     margin: 0
     max-width: 40%
-    font-size: 1.5em
+    font-size: 1.25em
 </style>

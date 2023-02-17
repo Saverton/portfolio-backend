@@ -18,6 +18,7 @@
 
 <style lang="sass">
   img
-    width: 4rem
+    width: 5vw
+    min-width: 3rem
     position: absolute
 </style>
