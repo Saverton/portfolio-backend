@@ -15,7 +15,7 @@
   <a href="https://github.com/Saverton" target="_blank" rel="noreferrer">
     <Fa icon={faGithub} />
   </a>
-  <a href="https://linkedin.com/scottmeadows-se" target="_blank" rel="noreferrer">
+  <a href="https://www.linkedin.com/in/scottmeadows-se/" target="_blank" rel="noreferrer">
     <Fa icon={faLinkedin} />
   </a>
 </nav>

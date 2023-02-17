@@ -71,8 +71,8 @@
   {/if}
 
   <div>
-    {#each displayedProjects as project}
-      <ProjectCard {...project} />
+    {#each displayedProjects as project, index (`project-${index}`)}
+      <ProjectCard {...project} reverse={index % 2 === 1}/>
     {/each}
   </div>
 </section>

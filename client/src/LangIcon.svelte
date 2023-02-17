@@ -2,9 +2,10 @@
   import { tweened } from 'svelte/motion';
   import { remToPixels, langListWidth } from './util/langListHelpers.js';
   export let src;
+  export let speed;
 
   const position = tweened(remToPixels(-4), {
-    duration: (langListWidth() / 75 * 1000)
+    duration: (langListWidth() / speed * 1000)
   });
 
   position.set(langListWidth() + remToPixels(4));

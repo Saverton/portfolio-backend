@@ -1,5 +1,4 @@
 <script>
-	import LangList from "./LangList.svelte";
   import ContactButtons from "./ContactButtons.svelte";
 </script>
 
@@ -25,8 +24,6 @@
       </a>
     </nav>
   </div>
-
-  <LangList />
 </header>
 
 <style lang="sass">

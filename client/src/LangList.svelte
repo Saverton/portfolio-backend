@@ -4,6 +4,8 @@
   import { docIsHidden } from './util/langListHelpers.js';
   import LangIcon from './LangIcon.svelte';
 
+  const SPEED = 50;
+
   let languageQueue = [];
   let nextIndex = 0;
   let list;
@@ -11,7 +13,7 @@
   let interval;
 
   $: {
-    updateIntervalTimer((Math.max(listWidth, 1000) / 75 * 1000) / 12);
+    updateIntervalTimer((Math.max(listWidth, 1000) / SPEED * 1000) / 12);
     languageQueue = [];
   }
 
@@ -58,7 +60,7 @@
   <div class="border" />
   <ul id="lang-list" bind:this={list}>
     {#each languageQueue as icon (icon.id)}
-      <LangIcon src={icon.url} />
+      <LangIcon src={icon.url} speed={SPEED} />
     {/each}
   </ul>
   <div class="border" />
