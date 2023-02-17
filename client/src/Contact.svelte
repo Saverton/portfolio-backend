@@ -1,61 +1,71 @@
 <script>
-  import { contacts } from './test-data/contacts.js';
+  import ContactButtons from "./ContactButtons.svelte";
 </script>
 
 <section id="contact">
   <div class="banner">
-    <h1>Let's Work Together</h1>
+    <h1>Let's Build Something Great</h1>
   </div>
 
-  <nav>
-    {#each contacts as { name, link }}
-      <a
-        href={link}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <button>
-          {name}
-        </button>
-      </a>
-    {/each}
-  </nav>
+  <article>
+    <h2>Scott Meadows</h2>
+
+    <p>
+      Looking for a passionate, eager to learn, and skilled developer to join your team?
+    </p>
+
+    <p>
+      Reach me through any of the following:
+    </p>
+    
+    <div class="container">
+      <ContactButtons />
+    </div>
+
+    <p class="small">
+      south east/central PA
+      <br />
+      (610) 420 0893
+      <br />
+      scottmeadows04@gmail.com
+    </p>
+  </article>
 </section>
 
 <style lang="sass">
+  section
+    min-height: 100vh
+    margin-bottom: 0
+
   div.banner
-    width: 100%
-    padding: 1.5rem 0
+    width: 100vw
+    padding: 2.5rem 0
     text-align: center
-    background-color: #000010
-    color: white
+    background-color: #994
+    color: black
     letter-spacing: 0.25rem
 
   h1
-    font-size: 4em
+    font-size: 3rem
     margin: 0
 
-  nav
-    display: flex
-    flex-direction: column
-    gap: 10px
-    margin: 1em auto
-    width: 50%
+  article
+    width: 80%
+    margin: 3rem auto
+    text-align: center
 
-  button
-    background-color: transparent
+  p
     color: #889
-    border: 2px solid #889
-    border-radius: 0.25rem
-    width: 100%
-    padding: 0.5rem 0
-    font-family: inherit
-    font-weight: bold
+    width: 75%
+    margin: 1rem auto
+    font-size: 1.25rem
 
-    &:hover
-      background-color: #334
+    &.small
+      font-size: 1rem
 
-  a
-    flex-basis: 30%
-    text-decoration: none
+  div
+    &.container
+      width: fit-content
+      margin: 2rem auto
+      font-size: 1.5rem
 </style>

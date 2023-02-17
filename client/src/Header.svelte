@@ -1,35 +1,19 @@
 <script>
 	import LangList from "./LangList.svelte";
-  import Fa from 'svelte-fa';
-  import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-  import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+  import ContactButtons from "./ContactButtons.svelte";
 </script>
 
 <header>
   <div>
     <h1>Scott Meadows</h1>
 
-    <nav id="contact">
-      <!-- Contact links -->
-      <a href="tel:6104200893">
-        <Fa icon={faPhone} />
-      </a>
-      <a href="mailto:scottmeadows04@gmail.com">
-        <Fa icon={faEnvelope} />
-      </a>
-      <a href="https://github.com/Saverton" target="_blank" rel="noreferrer">
-        <Fa icon={faGithub} />
-      </a>
-      <a href="https://linkedin.com/scottmeadows-se" target="_blank" rel="noreferrer">
-        <Fa icon={faLinkedin} />
-      </a>
-    </nav>
+    <ContactButtons />
   </div>
 
   <div>
     <h3>Full Stack Software Developer</h3>
 
-    <nav id="contents">
+    <nav>
       <a href="#about">
         <button>about</button>
       </a>
