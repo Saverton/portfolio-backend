@@ -21,6 +21,9 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Use Jbuilder for serializing API data into JSON
 gem "jbuilder", "~> 2.5"
 
+# For storage of Images in an amazon s3 bucket
+gem "aws-sdk-s3", require: false
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

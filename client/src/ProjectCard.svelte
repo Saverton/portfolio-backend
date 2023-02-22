@@ -4,6 +4,7 @@
   export let links;
   export let tags;
   export let reverse;
+  export let thumbnail_url;
 
   import { fly } from 'svelte/transition';
   import { inview } from 'svelte-inview';
@@ -29,7 +30,7 @@
       <div class="image">
         <HoverDiv text={description}>
           <img
-            src="/src/lib/assets/stress_busters_thumbnail.png"
+            src={thumbnail_url || "/src/lib/assets/stress_busters_thumbnail.png"}
             alt={`${title} preview`}
           />
         </HoverDiv>
