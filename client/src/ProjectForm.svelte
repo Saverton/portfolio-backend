@@ -110,3 +110,29 @@
   <button>Submit</button>
 
 </form>
+
+<style lang="sass">
+  form
+    margin: 1rem 0
+  
+  label
+    display: block
+
+  input
+    margin-bottom: 1rem
+
+  fieldset
+    margin-bottom: 0.5rem
+  
+  button
+    display: block
+    background-color: #445
+    color: white
+    border: none
+    padding: 0.5rem
+    margin: 0.25rem
+    cursor: pointer
+
+    &:hover
+      background-color: #667
+</style>

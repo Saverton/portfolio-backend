@@ -1,9 +1,9 @@
 class Api::SessionsController < ApplicationController
   # GET /me
   def show
-    authorize
+    return unauthorized unless session[:admin_id]
 
-    @admin = Admin.find(session[:admin_id])
+    @admin = Admin.find_by(id: session[:admin_id])
     render :show, status: :ok
   end
 
