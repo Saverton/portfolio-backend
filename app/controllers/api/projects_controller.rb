@@ -1,5 +1,6 @@
 class Api::ProjectsController < ApplicationController
-  before_action :set_project, only: %i[show update destroy]
+  before_action :set_project, only: %i[update destroy]
+  before_action :authorize, only: %i[create update destroy]
 
   # GET /projects
   def index

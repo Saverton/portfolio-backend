@@ -82,6 +82,7 @@ GEM
       aws-sigv4 (~> 1.4)
     aws-sigv4 (1.5.2)
       aws-eventstream (~> 1, >= 1.0.2)
+    bcrypt (3.1.16)
     builder (3.2.4)
     concurrent-ruby (1.2.0)
     crass (1.0.6)
@@ -175,6 +176,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk-s3
+  bcrypt
   debug
   jbuilder (~> 2.5)
   pg (~> 1.1)
