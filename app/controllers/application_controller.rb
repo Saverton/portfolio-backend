@@ -6,9 +6,13 @@ class ApplicationController < ActionController::Base
   private
 
   def authorize
-    return unauthorized unless
-      cookies['CSRF_TOKEN'] == request.headers['X-CSRF-Token'] &&
-      session[:admin_id]
+    if cookies['CSRF_TOKEN'] != request.headers['X-CSRF-Token']
+      puts 'failed CSRF token'
+      unauthorized
+    elsif !session[:admin_id]
+      puts 'failed session admin_id'
+      unauthorized
+    end
   end
 
   def unauthorized
