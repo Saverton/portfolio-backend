@@ -1,7 +1,7 @@
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::API
   include ActionController::Cookies
-  after_action :set_csrf_cookie
-  skip_before_action :verify_authenticity_token
+  # after_action :set_csrf_cookie
+  # skip_before_action :verify_authenticity_token
 
   private
 
